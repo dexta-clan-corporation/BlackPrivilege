@@ -25,7 +25,7 @@ namespace Dexta
 
 		T* getBack() { return m_vItems.back(); }
 
-		size_t getSize() const { return m_vItems.size(); }
+		size_t size() const { return m_vItems.size(); }
 
 		size_t isEmpty() const { return m_vItems.empty(); }
 
