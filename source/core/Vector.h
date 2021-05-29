@@ -11,6 +11,14 @@ namespace Dexta
 	public:
 		Vector() {}
 
+		Vector(size_t size)
+			: m_vItems(size)
+		{}
+
+		Vector(size_t size, const T& initValue)
+			: m_vItems(size, initValue)
+		{}
+
 		virtual ~Vector() {}
 
 		const T* getData() const { return m_vItems.data(); }
@@ -59,6 +67,16 @@ namespace Dexta
 		const T& operator[](size_t index) const { return m_vItems[index]; }
 
 		T& operator[](size_t index) { return m_vItems[index]; }
+
+		void erase(size_t index)
+		{
+			m_vItems.erase(m_vItems.begin() + index);
+		}
+
+		void erase(size_t startIndex, size_t stopIndex)
+		{
+			m_vItems.erase(m_vItems.begin() + startIndex, m_vItems.begin() + stopIndex);
+		}
 	private:
 #pragma warning ( push )
 #pragma warning ( disable : 4251 )
